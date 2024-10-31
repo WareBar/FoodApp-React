@@ -21,7 +21,7 @@ const Search = () => {
             // fetch is a js built-in function that collects a data based on passed url API
             const res = await fetch(`${apiUrl}?query=${query}&apiKey=${apiKey}`)
             const data = await res.json()
-            console.log(data)
+            console.log(data);
         }
         fetchFood()
 
