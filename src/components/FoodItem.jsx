@@ -1,4 +1,4 @@
-const Food = ({foodItem}) => {
+const FoodItem = ({foodItem}) => {
     return (
         <>
         
@@ -10,4 +10,4 @@ const Food = ({foodItem}) => {
 }
 
 
-export default Food
+export default FoodItem;
