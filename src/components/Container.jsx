@@ -1,12 +1,7 @@
-import styles from '../components_styles/container.module.css'
-
-const Container = ({ children }) => {
+const Container = ( {children} ) => {
     return (
-        <div className={styles.parentContainer}>
-            <div>{ children }</div>
-        </div>
+        <div>{children}</div>
     )
 }
 
-
-export default Container
+export default Container;
