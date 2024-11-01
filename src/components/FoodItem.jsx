@@ -1,5 +1,5 @@
 import styles from '../components_styles/foodItem.module.css'
-const FoodItem = ({foodItem}) => {
+const FoodItem = ({foodItem, setFoodId}) => {
     return (
         <div className={styles.FoodItem}>
 
@@ -7,9 +7,12 @@ const FoodItem = ({foodItem}) => {
             <div className={styles.foodContent}>
                 <p className={styles.foodName}>{foodItem.title}</p>
             </div>
-            <button className={styles.foodButton}>View Recipe</button>
-        
-        
+            <button className={styles.foodButton}
+            onClick={()=>{
+                console.log(foodItem.id)
+                setFoodId(foodItem.id);
+            }}
+            >View Recipe</button>
         </div>
     )
 }
