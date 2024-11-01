@@ -12,6 +12,10 @@ const Search = () => {
 
 
     const [query, setQuery] = useState('Pizza');
+
+    // the await keyword waits for the response of a function before it can be accessed
+    // the async keyword on the other hand allows simultaneous calling of a function
+
     useEffect(()=>{
         async function fetchFood(){
             // fetch is a js built-in function that collects a data based on passed url API
