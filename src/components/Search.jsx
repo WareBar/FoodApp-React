@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import styles from '../components_styles/search.module.css';
+
 
 const apiUrl = 'https://api.spoonacular.com/recipes/complexSearch'
-const apiKey = '88affbb53dcf4de199c109f524a999e5'
+const apiKey = '7fc725d2c3244afebd957a7aa77e283c'
 
 
 const Search = ({ setFoodData} ) => {
@@ -21,16 +23,22 @@ const Search = ({ setFoodData} ) => {
             // fetch is a js built-in function that collects a data based on passed url API
             const res = await fetch(`${apiUrl}?query=${query}&apiKey=${apiKey}`)
             const data = await res.json()
-            console.log(data.results);
-            setFoodData(data.results);
+            if (data.status === 'failure'){
+                alert(data.message)
+            }
+            else{
+                console.log(data)
+                console.log(data.results);
+                setFoodData(data.results)
+            }
         }
         fetchFood()
 
     },[query])
 
     return (
-        <div className="Search">
-            <input type="text" id="searchBox"
+        <div className={styles.Search}>
+            <input type="text" id={styles.searchBox}
             onChange={(e)=>setQuery(e.target.value)}
             />
         </div>
