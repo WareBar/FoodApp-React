@@ -5,7 +5,7 @@ const FoodList = ({foodData}) => {
     return (
         <div className={styles.FoodList}>
                 {foodData.map((food)=>(
-                    <FoodItem foodItem={food}/>
+                    <FoodItem foodItem={food} key={food.id}/>
                 ))}
             
         </div>
