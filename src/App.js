@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Search from './components/Search';
-
+import FoodList from './components/FoodList';
 
 function App() {
 
@@ -10,9 +10,7 @@ function App() {
   return (
     <div className="App">
       <Search setFoodData={setFoodData}/>
-      {foodData.map((food)=>(
-        <p>{food.title}</p>
-      ))}
+      <FoodList foodData={foodData}/>
     </div>
   );
 }
