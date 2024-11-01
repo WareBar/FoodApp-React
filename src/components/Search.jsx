@@ -4,7 +4,7 @@ const apiUrl = 'https://api.spoonacular.com/recipes/complexSearch'
 const apiKey = '88affbb53dcf4de199c109f524a999e5'
 
 
-const Search = () => {
+const Search = ({ setFoodData} ) => {
 // always use effectHooks inside of a component, and never outside
 // useEffects Hooks are used when we want a component to sync with an external API so that whenever components changes, the data changes always
 // useEffect Hooks are similar to JS addEventListener
@@ -21,7 +21,8 @@ const Search = () => {
             // fetch is a js built-in function that collects a data based on passed url API
             const res = await fetch(`${apiUrl}?query=${query}&apiKey=${apiKey}`)
             const data = await res.json()
-            console.log(data);
+            console.log(data.results);
+            setFoodData(data.results);
         }
         fetchFood()
 
