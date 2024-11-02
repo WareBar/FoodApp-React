@@ -42,22 +42,35 @@ const FoodDetails = ({foodId}) => {
                     </span>
                     <span>{food.vegan? "🐮Vegan":""}</span>
                 </div>
+
                 <div>
                     $<span>{food.pricePerServing/100} Per Serving</span>
                 </div>
-            </div>
 
-            <div>
 
                 <h2>Recipe Instructions</h2>
-                {/* displays "Loading..." text if the data is still not available and otherwise if available */}
-                {isLoading? 'Loading...':food.analyzedInstructions[0].steps.map((foodStep)=>(
-                    <li key={foodStep.number}>{foodStep.step}</li>
-                ))}
+                <ul>
+                    {/* displays "Loading..." text if the data is still not available and otherwise if available */}
+                    {isLoading? 'Loading...':food.analyzedInstructions[0].steps.map((foodStep)=>(
+                        <li key={foodStep.number}>{foodStep.step}</li>
+                    ))}
+                </ul>
 
+                <ol>
+                    {isLoading? 'Ingredients...':
+                    
+                    food.extendedIngredients.map((ingredientItem)=>(
+                        <li>
+                            {ingredientItem.name}
+                        </li>
+                    ))
+
+                    }
+                </ol>
             </div>
-
         </div>
+
+
     )
 }
 
