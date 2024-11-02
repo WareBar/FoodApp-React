@@ -1,5 +1,6 @@
 .Container{
-    border: 1px solid black;
     display: grid;
     grid-template-columns: auto auto;
+    width: 1080px;
+    margin: 0px auto;
 }
