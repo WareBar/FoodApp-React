@@ -1,7 +1,8 @@
+import styles from '../components_styles/fooddetails.module.css'
 import { useEffect, useState } from "react";
 
 const FoodDetails = ({foodId}) => {
-    const apiKey = 'ca08c680f7f34b32ab85b29476761c83'
+    const apiKey = '493c004dc4a44b4098649cc7425e4721'
     const [food, setFood] = useState({})
     // state used to determine if the data from API is fetch
     const [isLoading, setIsLoading] = useState(true)
@@ -26,21 +27,14 @@ const FoodDetails = ({foodId}) => {
     }, [foodId])
 
     return (
-        <div className="FoodDetails">
+        <div className={styles.FoodDetails}>
             <div>
-                <h1>{food.title}</h1>
-                <img src={food.image} alt={food.title} />
-                <div>
-                    <span>
-                        <strong>🕐{food.readyInMinutes} Minutes</strong>
-                    </span>
-                    <span>
-                        {food.vegetarian? '🍖Vegetarian':'🍖Non-Vegetarian'}
-                    </span>
-                    <span>
-                        <strong>Serves: {food.servings}</strong>
-                    </span>
-                    <span>{food.vegan? "🐮Vegan":""}</span>
+                <h1 className={styles.recipeName}>{food.title}</h1>
+                <img className={styles.recipeImage} src={food.image} alt={food.title} />
+                <div className={styles.recipeDetails}>
+                    <span><strong>🕐{food.readyInMinutes} Minutes</strong></span>
+                    <span>{food.vegetarian? '🍖Vegetarian':'🍖Non-Vegetarian'}</span>
+                    <span><strong>Serves: {food.servings} 👳</strong></span><span>{food.vegan? "🐮Vegan":""}</span>
                 </div>
 
                 <div>
@@ -49,25 +43,31 @@ const FoodDetails = ({foodId}) => {
 
 
                 <h2>Recipe Instructions</h2>
-                <ul>
-                    {/* displays "Loading..." text if the data is still not available and otherwise if available */}
-                    {isLoading? 'Loading...':food.analyzedInstructions[0].steps.map((foodStep)=>(
-                        <li key={foodStep.number}>{foodStep.step}</li>
-                    ))}
-                </ul>
+                <div className={styles.recipeInstructions}>
+                    <ol>
+                        {/* displays "Loading..." text if the data is still not available and otherwise if available */}
+                        {isLoading? 'Loading...':food.analyzedInstructions[0].steps.map((foodStep)=>(
+                            <li key={foodStep.number}>{foodStep.step}</li>
+                        ))}
+                    </ol>
+                </div>
 
-                <ol>
+                <h3>Recipe Ingredients</h3>
+                <ul>
                     {isLoading? 'Ingredients...':
                     
                     food.extendedIngredients.map((ingredientItem)=>(
                         <li>
-                            {ingredientItem.name}
+                            {ingredientItem.original}
                         </li>
                     ))
 
                     }
-                </ol>
+                </ul>
             </div>
+
+            <a href={food.sourceUrl}>Read More</a>
+
         </div>
 
 
