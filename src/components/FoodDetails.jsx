@@ -2,7 +2,7 @@ import styles from '../components_styles/fooddetails.module.css'
 import { useEffect, useState } from "react";
 
 const FoodDetails = ({foodId}) => {
-    const apiKey = '493c004dc4a44b4098649cc7425e4721'
+    const apiKey = '05940b3f618749bcae5d955b0311f74a'
     const [food, setFood] = useState({})
     // state used to determine if the data from API is fetch
     const [isLoading, setIsLoading] = useState(true)
@@ -32,8 +32,8 @@ const FoodDetails = ({foodId}) => {
                 <h1 className={styles.recipeName}>{food.title}</h1>
                 <img className={styles.recipeImage} src={food.image} alt={food.title} />
                 <div className={styles.recipeDetails}>
-                    <span><strong>🕐{food.readyInMinutes} Minutes</strong></span>
-                    <span>{food.vegetarian? '🍖Vegetarian':'🍖Non-Vegetarian'}</span>
+                    <span><strong>🕐 {food.readyInMinutes} Minutes</strong></span>
+                    <span>{food.vegetarian? '🍎 Vegetarian':'🍖 Non-Vegetarian'}</span>
                     <span><strong>Serves: {food.servings} 👳</strong></span><span>{food.vegan? "🐮Vegan":""}</span>
                 </div>
 
@@ -53,17 +53,17 @@ const FoodDetails = ({foodId}) => {
                 </div>
 
                 <h3>Recipe Ingredients</h3>
-                <ul>
+                <div className={styles.recipeIngredients}>
                     {isLoading? 'Ingredients...':
                     
                     food.extendedIngredients.map((ingredientItem)=>(
-                        <li>
-                            {ingredientItem.original}
-                        </li>
+                        <div>
+                            <img key={ingredientItem.id} src={`https://img.spoonacular.com/ingredients_100x100/${ingredientItem.image}`} alt="" />
+                            <h3>{ingredientItem.name}</h3>
+                        </div>
                     ))
-
                     }
-                </ul>
+                </div>
             </div>
 
             <a href={food.sourceUrl}>Read More</a>
