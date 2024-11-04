@@ -3,7 +3,7 @@ import styles from '../components_styles/search.module.css';
 
 
 const apiUrl = 'https://api.spoonacular.com/recipes/complexSearch'
-const apiKey = '493c004dc4a44b4098649cc7425e4721'
+const apiKey = '05940b3f618749bcae5d955b0311f74a'
 
 
 const Search = ({ setFoodData} ) => {
