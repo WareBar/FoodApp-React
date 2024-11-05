@@ -1,4 +1,5 @@
 import styles from '../components_styles/fooddetails.module.css'
+import ItemList from './itemList';
 import { useEffect, useState } from "react";
 
 const FoodDetails = ({foodId}) => {
@@ -54,15 +55,8 @@ const FoodDetails = ({foodId}) => {
 
                 <h3>Recipe Ingredients</h3>
                 <div className={styles.recipeIngredients}>
-                    {isLoading? 'Ingredients...':
-                    
-                    food.extendedIngredients.map((ingredientItem)=>(
-                        <div>
-                            <img key={ingredientItem.id} src={`https://img.spoonacular.com/ingredients_100x100/${ingredientItem.image}`} alt="" />
-                            <h3>{ingredientItem.name}</h3>
-                        </div>
-                    ))
-                    }
+                    {/* PUT THE ITELIST COMPONENTS HERE */}
+                    <ItemList food={food} isLoading={isLoading}/>
                 </div>
             </div>
 
