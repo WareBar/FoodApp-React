@@ -47,6 +47,9 @@ const FoodDetails = ({foodId}) => {
                 <div className={styles.recipeInstructions}>
                     <ol>
                         {/* displays "Loading..." text if the data is still not available and otherwise if available */}
+                        {/* A ternary operator, determining if data is still in the process of fetching and if not, it will
+                        display the data
+                        */}
                         {isLoading? 'Loading...':food.analyzedInstructions[0].steps.map((foodStep)=>(
                             <li key={foodStep.number}>{foodStep.step}</li>
                         ))}
