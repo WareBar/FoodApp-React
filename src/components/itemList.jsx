@@ -7,6 +7,7 @@ const ItemList = ({food, isLoading}) =>{
                 <div>
                     <img key={ingredientItem.id} src={`https://img.spoonacular.com/ingredients_100x100/${ingredientItem.image}`} alt="" />
                     <h3>{ingredientItem.name}</h3>
+                    <pre>{ingredientItem.original}</pre>
                 </div>
             ))
             }
