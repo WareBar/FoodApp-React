@@ -1,0 +1,15 @@
+.Search{
+    margin: 20px auto;
+    width: 300px;
+    position: relative;
+    /* width: fit-content; */
+}
+
+.Search input{
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 10px 20px;
+    width: 100%;
+    outline: none;
+    font-size: 20px;
+}
