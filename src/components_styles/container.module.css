@@ -1,6 +1,0 @@
-.Container{
-    display: grid;
-    grid-template-columns: auto auto;
-    width: 1080px;
-    margin: 0px auto;
-}
