@@ -3,13 +3,13 @@ import styles from '../styles/Navigation.module.css'
 const Navigation = () =>{
     return (
         <nav className={styles.Navigation}>
-            <div className="brand">
-                <img src="https://github.com/WareBar/FoodApp-React/blob/master/public/CookBookBrand.png" alt="" />
+            <div className={styles.brand}>
+                <img src="./CookBookBrand.png" alt="brand product" />
+                <h1>WareBar's Cook Book</h1>
             </div>
 
-            <button className={styles.slidebtn}>
-                <p>///</p>
-            </button>
+            <input type="button" value="///" />
+
         </nav>
     )
 }
