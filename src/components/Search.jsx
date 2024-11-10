@@ -16,7 +16,7 @@ const Search = ({setFoodData}) =>{
             }
             else{
                 console.log(data)
-                setFoodData(data)
+                setFoodData(data.results)
             }
         }
 
