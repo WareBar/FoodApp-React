@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import styles from '../styles/Seach.module.css'
 
 const URL = 'https://api.spoonacular.com/recipes/complexSearch'
 const KEY = '05940b3f618749bcae5d955b0311f74a'
@@ -24,8 +25,8 @@ const Search = ({setFoodData}) =>{
     }
 
     return (
-        <div>
-            <input type="search"
+        <div className={styles.Search}>
+            <input type="search" placeholder="Search Food"
             onChange={(e)=>Querying(e)}
             />
         </div>
