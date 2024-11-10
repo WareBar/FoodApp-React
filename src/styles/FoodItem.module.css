@@ -1,0 +1,36 @@
+.Food{
+    width: 300px;
+    /* border-radius: 5px; */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    overflow: hidden;
+    font-family: 'Montserrat',sans-serif;
+
+}
+
+.foodInfo{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top:10px;
+}
+
+.foodName{
+    margin: 10px 0px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #393e46;
+}
+
+.viewBtn{
+    background-color: #29bb89;
+    border: none;
+    color: whitesmoke;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 100%;
+}
