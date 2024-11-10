@@ -4,7 +4,6 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px;
     overflow: hidden;
     font-family: 'Montserrat',sans-serif;
 
@@ -17,7 +16,7 @@
 }
 
 .foodName{
-    margin: 10px 0px;
+    margin: 20px 0px;
     font-size: 1.1em;
     font-weight: 600;
     color: #393e46;
@@ -33,4 +32,9 @@
     cursor: pointer;
     border-radius: 3px;
     width: 100%;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
 }
