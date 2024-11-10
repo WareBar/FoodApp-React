@@ -1,4 +1,5 @@
 import styles from '../styles/FoodItem.module.css'
+import { Link } from 'react-router-dom'
 
 const FoodItem = ({food, setFoodId}) => {
     return (
@@ -9,9 +10,11 @@ const FoodItem = ({food, setFoodId}) => {
             <div className={styles.foodInfo}>
                 <p className={styles.foodName}>{food.title}</p>
 
-                <input className={styles.viewBtn} type="button" value="VIEW RECIPE"
-                onClick={()=>setFoodId(food.id)}
-                />
+                <button className={styles.viewBtn} onClick={()=>setFoodId(food.id)}>
+                    <Link className={styles.link} to="/Recipe">VIEW RECIPE</Link>
+                </button>
+
+
             </div>
         </div>
     )
