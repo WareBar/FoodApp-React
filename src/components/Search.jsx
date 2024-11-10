@@ -11,8 +11,13 @@ const Search = ({setFoodData}) =>{
         async function fetchFood(){
             const result = await fetch(`${URL}?query=${query}&apiKey=${KEY}`)
             const data = await result.json()
-            console.log(data)
-            setFoodData(data)
+            if (data.status === 'failure'){
+                alert(data.message)
+            }
+            else{
+                console.log(data)
+                setFoodData(data)
+            }
         }
 
         fetchFood()
