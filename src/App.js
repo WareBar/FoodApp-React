@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Navigation from './components/Navigation';
+import Search from './components/Search';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Navigation/>
+      <Search setFoodData={setFoodData}/>
 
     </div>
   );
