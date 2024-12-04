@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import styles from '../styles/Seach.module.css'
 
 const URL = 'https://api.spoonacular.com/recipes/complexSearch'
-const KEY = 'd3f8ee2aa31e4719a0d8e798393c77a5'
+const KEY = '1e51ee9ca5b54891821b46862ee2041f'
 
 const Search = ({setFoodData}) =>{
     const [query, setQuery] = useState('Pizza');

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const FoodDetails = ({foodId}) =>{
-    const KEY = 'd3f8ee2aa31e4719a0d8e798393c77a5'
+    const KEY = '1e51ee9ca5b54891821b46862ee2041f'
     const [food, setFood] = useState({})
 
     useEffect(()=>{
