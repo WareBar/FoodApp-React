@@ -14,7 +14,7 @@ const FoodDetails = ({foodId}) =>{
 
         fetchFood()
 
-    },[food])
+    },[])
 
     return (
         <div>
