@@ -18,8 +18,27 @@ const FoodDetails = ({foodId}) =>{
 
     return (
         <div>
-            <p>THIS IS FOOD RECIPE COMPONENT</p>
             <h1>{food.title}</h1>
+
+            <div className="info">
+                <div className="right">
+                    <div className="banner">
+                        <img src={food.image} alt={food.title} />                    
+                    </div>
+                    <div className="meta-info">
+                        <p>
+                            <span>PREP TIME</span>
+                            <span>SERVING: {food.servings}</span>
+                            <span>TYPE: {food.cuisines}</span>
+                            <span>PRICE PER SERVING: {food.pricePerServing}</span>
+                        </p>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div className="left"></div>
+            </div>
         </div>
     )
 }
