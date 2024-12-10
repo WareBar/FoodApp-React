@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from '../styles/FoodDetails.module.css'
 
 const FoodDetails = ({foodId}) =>{
     const KEY = '1e51ee9ca5b54891821b46862ee2041f'
@@ -27,7 +28,7 @@ const FoodDetails = ({foodId}) =>{
                     </div>
                     <div className="meta-info">
                         <p>
-                            <span>PREP TIME</span>
+                            <span>PREP TIME: {food.readyInMinutes}</span>
                             <span>SERVING: {food.servings}</span>
                             <span>TYPE: {food.cuisines}</span>
                             <span>PRICE PER SERVING: {food.pricePerServing}</span>
