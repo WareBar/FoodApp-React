@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from '../styles/FoodDetails.module.css'
 
 const FoodDetails = ({foodId}) =>{
-    const KEY = '1e51ee9ca5b54891821b46862ee2041f'
+    const KEY = 'f4e67dfa4a0f4afcaae7497c1dd1ff73'
     const [food, setFood] = useState({})
 
     useEffect(()=>{
@@ -18,15 +18,15 @@ const FoodDetails = ({foodId}) =>{
     },[])
 
     return (
-        <div>
+        <div className={styles.Details}>
             <h1>{food.title}</h1>
 
-            <div className="info">
-                <div className="right">
-                    <div className="banner">
+            <div className={styles.info}>
+                <div className={styles.right}>
+                    <div className={styles.banner}>
                         <img src={food.image} alt={food.title} />                    
                     </div>
-                    <div className="meta-info">
+                    <div className={styles.meta_info}>
                         <p>
                             <span>PREP TIME: {food.readyInMinutes}</span>
                             <span>SERVING: {food.servings}</span>
