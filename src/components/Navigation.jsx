@@ -5,7 +5,7 @@ const Navigation = () =>{
         <nav className={styles.Navigation}>
             <div className={styles.brand}>
                 <img src="./CookBookBrand.png" alt="brand product" />
-                <h1>WareBar's CookBook</h1>
+                <h1 className={styles.title}>WareBar's CookBook</h1>
             </div>
 
             <input type="button" value="///" />
