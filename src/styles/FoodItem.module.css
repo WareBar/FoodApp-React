@@ -3,38 +3,57 @@
     /* border-radius: 5px; */
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 10px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     font-family: 'Montserrat',sans-serif;
+    transition: .3s;
+}
 
+.Food:hover{
+    transform: translateY(-10px);
 }
 
 .foodInfo{
     font-family: Arial, Helvetica, sans-serif;
+    font-size:0.8em;
     text-align: center;
     margin-top:10px;
 }
 
 .foodName{
     margin: 20px 0px;
-    font-size: 1.1em;
-    font-weight: 600;
+    font-size: 2.1em;
+    /* font-weight: 600; */
     color: #393e46;
+    font-family: "Just Me Again Down Here", serif;
+    font-weight: 400;
+    font-style: normal;
+
 }
 
 .viewBtn{
-    background-color: #29bb89;
+    background-color: #3fe89e;
     border: none;
     color: whitesmoke;
-    padding: 10px;
+    width:50%;
+    /* padding: 10px 10px 5px 5px; */
+    padding: 5px 8px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     border-radius: 3px;
-    width: 100%;
+    width: 50%;
+    margin: 20px;
+    transition: .3s;
+}
+
+.viewBtn:hover{
+    transform: scale(1.1);
+    background-color: #E88E3F;
 }
 
 .link{
     text-decoration: none;
     color: black;
+    text-align: center;
 }
