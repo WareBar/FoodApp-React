@@ -17,3 +17,9 @@
     height: 40px;
     width: 40px;
 }
+
+.title{
+    font-family: "Just Me Again Down Here", serif;
+    font-weight: 400;
+    font-style: normal;
+}
