@@ -2,10 +2,27 @@
     border: 2px solid black;
 }
 
+.right{
+    border: 1px solid aqua;
+    display: flex;
+    gap: 20px;
+}
+
+
+.meta_info p{
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid blue;
+    height: 100%;
+}
+
 
 .banner{
     width: 15em;
-    height: 10em;
+    height: 20em;
     border-radius: 5px 5px 0px 0px;
     box-shadow: 0px 10px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -17,8 +34,5 @@
     object-fit: cover;
     object-position: center;  
     transition: .3s;
-
-    
-
 }
 
