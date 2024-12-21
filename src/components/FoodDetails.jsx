@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import styles from '../styles/FoodDetails.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faUtensils, faAppleAlt } from '@fortawesome/free-solid-svg-icons';
 
 const FoodDetails = ({foodId}) =>{
-    const KEY = 'f4e67dfa4a0f4afcaae7497c1dd1ff73'
+    const KEY = '8f01c50cdb9f46b6bdb00a2bdf5d65a5'
     const [food, setFood] = useState({})
 
     useEffect(()=>{
@@ -28,10 +30,12 @@ const FoodDetails = ({foodId}) =>{
                     </div>
                     <div className={styles.meta_info}>
                         <p>
-                            <span>PREP TIME: {food.readyInMinutes}</span>
-                            <span>SERVING: {food.servings}</span>
-                            <span>TYPE: {food.cuisines}</span>
-                            <span>PRICE PER SERVING: {food.pricePerServing}</span>
+                        
+                            <span><FontAwesomeIcon className="fontIcon" icon={faClock}/>: {food.readyInMinutes}</span>
+                            <span><FontAwesomeIcon className="fonticon" icon={faUtensils}/>: {food.servings}</span>
+                            <span><FontAwesomeIcon className="fonticon" icon={faAppleAlt}/>: {food.vegetarian? 'Vegetarian':'Non-Vegetarian'}</span>
+                            {/* <span>{food.vegetarian? 'VEGE':'NOT VEGE'}</span> */}
+                            <span>${food.pricePerServing} per serving</span>
                         </p>
                     </div>
                 </div>
