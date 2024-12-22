@@ -1,13 +1,30 @@
 .Details{
-    border: 2px solid black;
+    width: fit-content;
+    margin: 0px auto;
+}
+
+.Details h1{
+    text-align: center;
+    margin-bottom: 60px;
+}
+.info{
+    display: flex;
+    gap: 30px;
+    
 }
 
 .right{
-    border: 1px solid aqua;
+    /* border: 1px solid aqua; */
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 
+hr{
+    padding: 1px;
+    background-color: black;
+}
 
 .meta_info p{
     display: flex;
@@ -15,7 +32,7 @@
     text-align: left;
     flex-direction: column;
     gap: 10px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height: 100%;
 }
 
@@ -37,7 +54,7 @@
 }
 
 .Ingredients{
-    border: 1px solid saddlebrown;
+    /* border: 1px solid saddlebrown; */
     display: grid;
     grid-template-columns: auto auto;
     /* justify-content: center; */
@@ -53,14 +70,22 @@
     margin: 10px;
 }
 
-.IngredientsItem p:only-of-type(span){
+.IngredientsName{
+    text-transform: capitalize;
     display: flex;
     flex-direction: column;
     margin: 2px;
     font-weight: bold;
 }
 
+.IngredientsOrig{
+    margin-top: 6px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: .7em;
+}
+
 .IngredientsItem img{
     height: 40px;
     width: 40px;
 }
+
