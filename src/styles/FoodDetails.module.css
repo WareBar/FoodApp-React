@@ -36,3 +36,31 @@
     transition: .3s;
 }
 
+.Ingredients{
+    border: 1px solid saddlebrown;
+    display: grid;
+    grid-template-columns: auto auto;
+    /* justify-content: center; */
+    width: fit-content;
+    height: 20em;
+    overflow: auto;
+    
+}
+
+.IngredientsItem{
+    width: 12em;
+    text-align: center;
+    margin: 10px;
+}
+
+.IngredientsItem p:only-of-type(span){
+    display: flex;
+    flex-direction: column;
+    margin: 2px;
+    font-weight: bold;
+}
+
+.IngredientsItem img{
+    height: 40px;
+    width: 40px;
+}
