@@ -25,42 +25,56 @@ const FoodDetails = ({foodId}) =>{
     return (
         <div className={styles.Details}>
             <h1>{food.title}</h1>
-
+            
             <div className={styles.info}>
-                <div className={styles.right}>
-                    <div className={styles.banner}>
-                        <img src={food.image} alt={food.title} />                    
+                <div className={styles.top}>
+                    <div className={styles.right}>
+                        <div className={styles.banner}>
+                            <img src={food.image} alt={food.title} />                    
+                        </div>
+                        <div className={styles.meta_info}>
+                            <p>
+                            
+                                <span><FontAwesomeIcon className="fontIcon" icon={faClock}/>: {food.readyInMinutes} minutes</span>
+                                <span><FontAwesomeIcon className="fonticon" icon={faUtensils}/>: {food.servings} servings</span>
+                                <span><FontAwesomeIcon className="fonticon" icon={faAppleAlt}/>: {food.vegetarian? 'Vegetarian':'Non-Vegetarian'}</span>
+                                {/* <span>{food.vegetarian? 'VEGE':'NOT VEGE'}</span> */}
+                                <span>${food.pricePerServing} per serving</span>
+                            </p>
+                        </div>
                     </div>
-                    <div className={styles.meta_info}>
-                        <p>
-                        
-                            <span><FontAwesomeIcon className="fontIcon" icon={faClock}/>: {food.readyInMinutes} minutes</span>
-                            <span><FontAwesomeIcon className="fonticon" icon={faUtensils}/>: {food.servings} servings</span>
-                            <span><FontAwesomeIcon className="fonticon" icon={faAppleAlt}/>: {food.vegetarian? 'Vegetarian':'Non-Vegetarian'}</span>
-                            {/* <span>{food.vegetarian? 'VEGE':'NOT VEGE'}</span> */}
-                            <span>${food.pricePerServing} per serving</span>
-                        </p>
+
+                    <hr />
+
+                    <div className="left">
+                        <h2>Recipe Ingredients</h2>
+                        <div className={styles.Ingredients}>
+                            {loading? <p>Loading...</p>:
+                            
+                            food.extendedIngredients.map((item)=>(
+                                <div className={styles.IngredientsItem}>
+                                    <img src={`https://spoonacular.com/cdn/ingredients_100x100/${item.image}`} alt={item.name} />
+                                    <p className={styles.IngredientsName}>
+                                        {item.name}
+                                        <span className={styles.IngredientsOrig}>{item.original}</span>
+                                    </p>
+                                </div>
+                            ))
+                            }
+                        </div>
                     </div>
                 </div>
-
-                <hr />
-
-                <div className="left">
-                    <h2>Recipe Ingredients</h2>
-                    <div className={styles.Ingredients}>
-                        {loading? <p>Loading...</p>:
+                <div className={styles.bottom}>
+                    <div className="instructions">
+                        <ol className={styles.instructionsContainer}>
+                            {loading? <li>Loading...</li>:
+                            
+                            food.analyzedInstructions[0].steps.map((item)=>(
+                                <li>{item.step}</li>
+                            )
+                            )}
+                        </ol>
                         
-                        food.extendedIngredients.map((item)=>(
-                            <div className={styles.IngredientsItem}>
-                                <img src={`https://spoonacular.com/cdn/ingredients_100x100/${item.image}`} alt={item.name} />
-                                <p className={styles.IngredientsName}>
-                                    {item.name}
-                                    <span className={styles.IngredientsOrig}>{item.original}</span>
-                                </p>
-                            </div>
-                        ))
-
-                        }
                     </div>
                 </div>
             </div>
