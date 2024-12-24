@@ -31,7 +31,6 @@ const Search = ({setFoodData}) =>{
 
     return (
         <div className={styles.Search}>
-            <p>♦</p>
             <input type="search" placeholder="Search Food"
             onChange={(e)=>Querying(e)}
             />
