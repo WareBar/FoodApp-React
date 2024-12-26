@@ -78,6 +78,11 @@ const FoodDetails = ({foodId}) =>{
                     </div>
                 </div>
             </div>
+
+            <div className="similarItems">
+                
+            </div>
+
         </div>
     )
 }
