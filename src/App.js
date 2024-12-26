@@ -14,12 +14,14 @@ function App() {
   return (
     <div className="App">
       <Navigation/>
-      <Search setFoodData={setFoodData}/>
+      {/* <Search setFoodData={setFoodData}/> */}
 
       <Routes>
         <Route index element={
-          <FoodList foodData={foodData} setFoodId={setFoodId} />}/>
+          <FoodList foodData={foodData} setFoodId={setFoodId} setFoodData={setFoodData} />}/>
         <Route path="/Recipe" element={<FoodDetails foodId={foodId}/>}/>
+        <Route path="/Foods" element={
+          <FoodList foodData={foodData} setFoodId={setFoodId} setFoodData={setFoodData} />}/>
       </Routes>
 
     </div>
