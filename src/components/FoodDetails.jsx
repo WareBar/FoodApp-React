@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import styles from '../styles/FoodDetails.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faUtensils, faAppleAlt } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom'
 
-const FoodDetails = ({foodId}) =>{
-    const KEY = '3ae7d9802f9940ad87b57e95c77ceb60'
+const FoodDetails = ({foodId, foodData}) =>{
+    const KEY = '317673f0e7e54b238f4ff0f16c53e1c7'
     const [food, setFood] = useState({})
     const [loading, isLoading] =useState(true);
 
@@ -14,7 +15,6 @@ const FoodDetails = ({foodId}) =>{
             const data = await result.json()
             console.log(data)
             setFood(data)
-            // data.extendedIngredients.map((item)=>(console.log(item.name)))
             isLoading(false)
         }
 
@@ -25,7 +25,7 @@ const FoodDetails = ({foodId}) =>{
     return (
         <div className={styles.Details}>
             <h1>{food.title}</h1>
-            
+            <Link className={styles.link} to="/Foods">Go Back</Link>
             <div className={styles.info}>
                 <div className={styles.top}>
                     <div className={styles.right}>
@@ -79,9 +79,6 @@ const FoodDetails = ({foodId}) =>{
                 </div>
             </div>
 
-            <div className="similarItems">
-                
-            </div>
 
         </div>
     )
