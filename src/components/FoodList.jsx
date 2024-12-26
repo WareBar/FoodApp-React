@@ -1,12 +1,17 @@
 import FoodItem from './FoodItem'
 import styles from '../styles/FoodList.module.css'
+import Search from './Search'
 
-const FoodList = ({foodData, setFoodId}) =>{
+
+const FoodList = ({foodData, setFoodId, setFoodData}) =>{
     return (
-        <div className={styles.FoodList}>
-            {foodData.map((food)=>(
-                <FoodItem food={food} setFoodId={setFoodId} />
-            ))}
+        <div>
+            <Search setFoodData={setFoodData}/>
+            <div className={styles.FoodList}>
+                {foodData.map((food)=>(
+                    <FoodItem food={food} setFoodId={setFoodId} />
+                ))}
+            </div>
         </div>
     )
 }
