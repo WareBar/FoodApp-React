@@ -3,6 +3,7 @@
     width: 300px;
     position: relative;
     /* width: fit-content; */
+    border: 1px solid #301313;
 }
 
 .Search input{
@@ -11,4 +12,5 @@
     width: 100%;
     outline: none;
     font-size: 20px;
+    text-align: center;
 }
