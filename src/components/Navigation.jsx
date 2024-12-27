@@ -1,4 +1,6 @@
 import styles from '../styles/Navigation.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Navigation = () =>{
     return (
@@ -8,7 +10,10 @@ const Navigation = () =>{
                 <h1 className={styles.title}>WareBar's CookBook</h1>
             </div>
 
-            <input type="button" value="///" />
+            {/* <input type="button" value="///" /> */}
+            <a href="hag.com" >
+                <FontAwesomeIcon className={styles.menuBtn} icon={faBars}/>
+            </a>
 
         </nav>
     )
