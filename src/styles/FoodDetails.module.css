@@ -6,6 +6,7 @@
 .Details h1{
     text-align: center;
     margin-bottom: 60px;
+    margin-top: 50px;
 }
 /* .info{
     display: flex;
@@ -146,4 +147,17 @@ hr{
     height: 20px;
     width: 20px;
     
+}
+
+.descriptions{
+    /* border: 1px solid green; */
+    width: 900px;
+}
+
+.descriptions p{
+    margin: 20px 0px 40px 0px;
+    font-size: 1em;
+    letter-spacing: .1em;
+    font-weight: 400;
+    margin-inline: 50px;
 }
