@@ -3,7 +3,6 @@ import styles from '../styles/FoodDetails.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faUtensils, faAppleAlt, faArrowLeftLong, faStar, faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
-import DOMPurify from 'dompurify'; 
 
 const FoodDetails = ({foodId, foodData}) =>{
     const KEY = 'aa538488bd584e5dbfde6ed1fce8c20f';
