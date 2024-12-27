@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import styles from '../styles/FoodDetails.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faUtensils, faAppleAlt } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faUtensils, faAppleAlt, faArrowLeftLong, faStar, faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
+import DOMPurify from 'dompurify'; 
 
 const FoodDetails = ({foodId, foodData}) =>{
-    const KEY = '317673f0e7e54b238f4ff0f16c53e1c7'
-    const [food, setFood] = useState({})
+    const KEY = 'aa538488bd584e5dbfde6ed1fce8c20f';
+    const [food, setFood] = useState({});
+    const [foodDescription, setFoodDescription] = useState();
     const [loading, isLoading] =useState(true);
 
     useEffect(()=>{
@@ -15,6 +17,7 @@ const FoodDetails = ({foodId, foodData}) =>{
             const data = await result.json()
             console.log(data)
             setFood(data)
+            setFoodDescription(data.summary.replace(/<(.|\n)*?>/g, ''))
             isLoading(false)
         }
 
@@ -25,7 +28,9 @@ const FoodDetails = ({foodId, foodData}) =>{
     return (
         <div className={styles.Details}>
             <h1>{food.title}</h1>
-            <Link className={styles.link} to="/Foods">Go Back</Link>
+            <Link className={styles.link} to="/Foods">
+                <FontAwesomeIcon className={styles.backBtn} icon={faArrowLeftLong}/> Go Back
+            </Link>
             <div className={styles.info}>
                 <div className={styles.top}>
                     <div className={styles.right}>
@@ -35,11 +40,14 @@ const FoodDetails = ({foodId, foodData}) =>{
                         <div className={styles.meta_info}>
                             <p>
                             
-                                <span><FontAwesomeIcon className="fontIcon" icon={faClock}/>: {food.readyInMinutes} minutes</span>
-                                <span><FontAwesomeIcon className="fonticon" icon={faUtensils}/>: {food.servings} servings</span>
-                                <span><FontAwesomeIcon className="fonticon" icon={faAppleAlt}/>: {food.vegetarian? 'Vegetarian':'Non-Vegetarian'}</span>
+                                <span><FontAwesomeIcon className="fontIcon" icon={faClock}/> : {food.readyInMinutes} minutes</span>
+                                <span><FontAwesomeIcon className="fonticon" icon={faUtensils}/> : {food.servings} servings</span>
+                                <span><FontAwesomeIcon className="fonticon" icon={faAppleAlt}/> : {food.vegetarian? 'Vegetarian':'Non-Vegetarian'}</span>
                                 {/* <span>{food.vegetarian? 'VEGE':'NOT VEGE'}</span> */}
-                                <span>${food.pricePerServing} per serving</span>
+                                <span>
+                                    <FontAwesomeIcon className="fontIcon" icon={faHandHoldingDollar}/> :
+                                    {food.pricePerServing} per serving</span>
+                                <span><FontAwesomeIcon className="fonticon" icon={faStar}/>: {food.spoonacularScore.toFixed(2)} Score</span>
                             </p>
                         </div>
                     </div>
@@ -93,6 +101,14 @@ const FoodDetails = ({foodId, foodData}) =>{
                         
                     </div>
                 </div>
+
+                <div className={styles.descriptions}>
+                    <h3>{food.title}'s' Description</h3>
+                    <p>
+                        {foodDescription}
+                    </p>
+                </div>
+
             </div>
 
 
