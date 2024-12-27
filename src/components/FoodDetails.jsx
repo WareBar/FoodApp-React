@@ -65,12 +65,14 @@ const FoodDetails = ({foodId, foodData}) =>{
                     </div>
                 </div>
 
+                {/* places the tags associated with the dish */}
+                <pre>Tags:</pre>
                 <div className={styles.dishTypes}>
-                    <pre>Tags:</pre>
                     {loading? <p>Loading...</p>:
                     
                     food.dishTypes.map((tags)=>(
                         <div className={styles.tagsCard}>
+                            <img src="./CookBookBrand.png" alt="" />
                             <p>{tags}</p>
                         </div>
                     ))
