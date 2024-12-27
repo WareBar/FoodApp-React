@@ -23,3 +23,13 @@
     font-weight: 400;
     font-style: normal;
 }
+
+.menuBtn{
+    height: 2em;
+    color: whitesmoke;
+    transition: .3s;
+}
+
+.menuBtn:hover{
+    transform: rotateZ(90deg);
+}
