@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
 import styles from '../styles/Seach.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
 
 const URL = 'https://api.spoonacular.com/recipes/complexSearch'
-const KEY = '838e42e4a573481ca9ddf56d40192585'
+const KEY = '299d7031b4b048bdb30836bd459a9ab1'
 
 const Search = ({setFoodData}) =>{
     const [query, setQuery] = useState('Pizza');
@@ -31,6 +34,7 @@ const Search = ({setFoodData}) =>{
 
     return (
         <div className={styles.Search}>
+            <FontAwesomeIcon className={styles.fontIcon} icon={faMagnifyingGlass}/>
             <input type="search" placeholder="Search Food"
             onChange={(e)=>Querying(e)}
             />

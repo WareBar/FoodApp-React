@@ -10,6 +10,7 @@ const Navigation = () =>{
                 <h1 className={styles.title}>WareBar's CookBook</h1>
             </div>
 
+
             {/* <input type="button" value="///" /> */}
             <a href="hag.com" >
                 <FontAwesomeIcon className={styles.menuBtn} icon={faBars}/>

@@ -5,7 +5,7 @@ import { faClock, faUtensils, faAppleAlt, faArrowLeftLong, faStar, faHandHolding
 import { Link } from 'react-router-dom'
 
 const FoodDetails = ({foodId, foodData}) =>{
-    const KEY = '838e42e4a573481ca9ddf56d40192585';
+    const KEY = '299d7031b4b048bdb30836bd459a9ab1';
     const [food, setFood] = useState({});
     const [foodDescription, setFoodDescription] = useState();
     const [loading, isLoading] =useState(true);
