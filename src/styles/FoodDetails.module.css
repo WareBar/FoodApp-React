@@ -1,6 +1,9 @@
 .Details{
     width: fit-content;
     margin: 0px auto;
+
+    position: relative;
+
 }
 
 .Details h1{
@@ -149,8 +152,7 @@ hr{
     
 }
 
-.descriptions{
-    /* border: 1px solid green; */
+/* .descriptions{
     width: 900px;
 }
 
@@ -160,4 +162,50 @@ hr{
     letter-spacing: .1em;
     font-weight: 400;
     margin-inline: 50px;
+} */
+
+.description{
+    width: 700px;
+    padding: 20px 40px;
+    
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 0px 10px 1px rgb(94, 94, 94);
+    border-radius: 4px;
+    transition: .3s;
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin-inline: auto; 
+    display: flex;
+    gap: 15px;
+}
+
+.active{
+    border: 1px solid red;
+}
+
+
+.topDescription{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px 20px 0px;
+}
+
+.exitBtn{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: unset;
+    font-size: 1.5em;
+    position: absolute;
+    right: 0;
+    top: 5px;
+
+    transition: .3s;
+}
+
+.exitBtn:hover{
+    color: red;
+    transform: rotate(-90deg);
 }
