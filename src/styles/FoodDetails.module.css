@@ -45,6 +45,10 @@ hr{
     height: 100%;
 }
 
+.meta_info p span{
+    display: flex;
+    align-items: center;
+}
 
 .banner{
     width: 15em;
@@ -77,7 +81,13 @@ hr{
     width: 12em;
     text-align: center;
     margin: 10px;
+    transition: .3s;
 }
+
+.IngredientsItem:hover{
+    transform: scale(1.1);
+}
+
 
 .IngredientsName{
     text-transform: capitalize;
@@ -144,6 +154,12 @@ hr{
     gap: 5px;
     background-color: #0D0805;
     color: whitesmoke;
+    transition: .2s;
+}
+
+.tagsCard:hover{
+    transform: scale(1.1);
+    background-color: #252525;
 }
 
 .tagsCard img{
@@ -208,4 +224,32 @@ hr{
 .exitBtn:hover{
     color: red;
     transform: rotate(-90deg);
+}
+
+.descriptionBtn{
+    background-color: transparent;
+    border: unset;
+    color: rgb(255, 88, 10);
+    background-color: #252525;
+    padding: 5px 10px;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 12px 12px 12px 12px;
+    transition: .3s;
+}
+
+.descriptionBtn:hover{
+    color: whitesmoke;
+    background-color: rgb(255, 88, 10);
+}
+
+
+.infoIcon{
+    height: 30px;
+    width: 30px;
+    transition: .3s;
+}
+
+.infoIcon:hover{
+    transform: scale(1.5);
 }

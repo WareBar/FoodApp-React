@@ -8,7 +8,7 @@ const URL = 'https://api.spoonacular.com/recipes/complexSearch'
 const KEY = '299d7031b4b048bdb30836bd459a9ab1'
 
 const Search = ({setFoodData}) =>{
-    const [query, setQuery] = useState('Pizza');
+    const [query, setQuery] = useState('Curry');
 
     useEffect(()=>{
         async function fetchFood(){
