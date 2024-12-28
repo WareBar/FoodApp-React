@@ -11,7 +11,7 @@ const Navigation = () =>{
             </div>
 
 
-            {/* <input type="button" value="///" /> */}
+            
             <a href="hag.com" >
                 <FontAwesomeIcon className={styles.menuBtn} icon={faBars}/>
             </a>

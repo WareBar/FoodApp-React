@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <Navigation/>
 
+      {/* Router, it allows us to navigate from one component to another */}
       <Routes>
         <Route index element={
           <FoodList foodData={foodData} setFoodId={setFoodId} setFoodData={setFoodData} />}/>

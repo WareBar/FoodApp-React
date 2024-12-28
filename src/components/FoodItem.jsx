@@ -10,6 +10,7 @@ const FoodItem = ({food, setFoodId}) => {
             <div className={styles.foodInfo}>
                 <p className={styles.foodName}>{food.title}</p>
 
+                {/* Navigate towards the /Recipe endpoint */}
                 <button className={styles.viewBtn} onClick={()=>setFoodId(food.id)}>
                     <Link className={styles.link} to="/Recipe">VIEW RECIPE</Link>
                 </button>

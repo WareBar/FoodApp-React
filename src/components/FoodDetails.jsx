@@ -5,12 +5,13 @@ import { faClock, faUtensils, faAppleAlt, faArrowLeftLong, faStar, faHandHolding
 import { Link } from 'react-router-dom'
 
 const FoodDetails = ({foodId, foodData}) =>{
-    const KEY = '299d7031b4b048bdb30836bd459a9ab1';
+    const KEY = '299d7031b4b048bdb30836bd459a9ab1'; 
     const [food, setFood] = useState({});
     const [foodDescription, setFoodDescription] = useState();
     const [loading, isLoading] =useState(true);
     const [seeDescription, setSeeDescription] = useState(false);
 
+    //fetches data from API everytime the value of foodId changes
     useEffect(()=>{
         async function fetchFood(){
             const result = await fetch('https://api.spoonacular.com/recipes/'+foodId+'/information?apiKey='+KEY)
@@ -87,9 +88,11 @@ const FoodDetails = ({foodId, foodData}) =>{
 
                     <hr />
 
+                    {/* Render the Ingredients */}
                     <div className="left">
                         <h2>Recipe Ingredients</h2>
                         <div className={styles.Ingredients}>
+                            {/* determine if the promised data is delivered, if no, it shall display the text Loading... otherwise the content */}
                             {loading? <p>Loading...</p>:
                             
                             food.extendedIngredients.map((item)=>(
@@ -121,6 +124,7 @@ const FoodDetails = ({foodId, foodData}) =>{
                     }
                 </div>
 
+                {/* Recipe's Instructions */}
                 <div className={styles.bottom}>
                     <div className="instructions">
                         <ol className={styles.instructionsContainer}>
@@ -135,12 +139,6 @@ const FoodDetails = ({foodId, foodData}) =>{
                     </div>
                 </div>
 
-                {/* <div className={styles.descriptions}>
-                    <h3>{food.title}'s' Description</h3>
-                    <p>
-                        {foodDescription}
-                    </p>
-                </div> */}
 
             </div>
 
