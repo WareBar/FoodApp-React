@@ -1,23 +1,29 @@
 import { useEffect, useState } from "react";
 import styles from '../styles/FoodDetails.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faUtensils, faAppleAlt, faArrowLeftLong, faStar, faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faUtensils, faAppleAlt, faArrowLeftLong, faStar, faHandHoldingDollar, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
 
 const FoodDetails = ({foodId, foodData}) =>{
-    const KEY = 'aa538488bd584e5dbfde6ed1fce8c20f';
+    const KEY = '838e42e4a573481ca9ddf56d40192585';
     const [food, setFood] = useState({});
     const [foodDescription, setFoodDescription] = useState();
     const [loading, isLoading] =useState(true);
+    const [seeDescription, setSeeDescription] = useState(false);
 
     useEffect(()=>{
         async function fetchFood(){
             const result = await fetch('https://api.spoonacular.com/recipes/'+foodId+'/information?apiKey='+KEY)
             const data = await result.json()
             console.log(data)
-            setFood(data)
-            setFoodDescription(data.summary.replace(/<(.|\n)*?>/g, ''))
-            isLoading(false)
+            if (data.status === 'failure'){
+                alert(data.message)
+            }
+            else{
+                setFood(data)
+                setFoodDescription(data.summary.replace(/<(.|\n)*?>/g, ''))
+                isLoading(false)
+            }
         }
 
         fetchFood()
@@ -26,6 +32,31 @@ const FoodDetails = ({foodId, foodData}) =>{
 
     return (
         <div className={styles.Details}>
+
+            {seeDescription? 
+            
+                <div className={`${styles.description} ${styles.active}`}>
+
+                    <div className={styles.topDescription}>
+                        <h3>{food.title}</h3> 
+                        <button className={styles.exitBtn} onClick={()=>setSeeDescription(false)}>
+                            <FontAwesomeIcon className="fontIcon" icon={faCircleXmark}/>
+                        </button>
+                        
+                    </div>
+                    <hr />
+                    <p>
+                        {foodDescription}
+                    </p>
+                </div>:
+                <></>
+        
+            }
+
+
+
+
+
             <h1>{food.title}</h1>
             <Link className={styles.link} to="/Foods">
                 <FontAwesomeIcon className={styles.backBtn} icon={faArrowLeftLong}/> Go Back
@@ -46,7 +77,10 @@ const FoodDetails = ({foodId, foodData}) =>{
                                 <span>
                                     <FontAwesomeIcon className="fontIcon" icon={faHandHoldingDollar}/> :
                                     {food.pricePerServing} per serving</span>
-                                <span><FontAwesomeIcon className="fonticon" icon={faStar}/>: {food.spoonacularScore.toFixed(2)} Score</span>
+                                <span><FontAwesomeIcon className="fonticon" icon={faStar}/>: {food.spoonacularScore} Score</span>
+                                <span>
+                                    <button onClick={()=>setSeeDescription(true)}>See Descriptions</button>
+                                </span>
                             </p>
                         </div>
                     </div>
@@ -101,12 +135,12 @@ const FoodDetails = ({foodId, foodData}) =>{
                     </div>
                 </div>
 
-                <div className={styles.descriptions}>
+                {/* <div className={styles.descriptions}>
                     <h3>{food.title}'s' Description</h3>
                     <p>
                         {foodDescription}
                     </p>
-                </div>
+                </div> */}
 
             </div>
 
