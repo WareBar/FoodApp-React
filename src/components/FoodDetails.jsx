@@ -71,16 +71,30 @@ const FoodDetails = ({foodId, foodData}) =>{
                         <div className={styles.meta_info}>
                             <p>
                             
-                                <span><FontAwesomeIcon className="fontIcon" icon={faClock}/> : {food.readyInMinutes} minutes</span>
+                                {/* <span><FontAwesomeIcon className="fontIcon" icon={faClock}/> : {food.readyInMinutes} minutes</span>
                                 <span><FontAwesomeIcon className="fonticon" icon={faUtensils}/> : {food.servings} servings</span>
                                 <span><FontAwesomeIcon className="fonticon" icon={faAppleAlt}/> : {food.vegetarian? 'Vegetarian':'Non-Vegetarian'}</span>
-                                {/* <span>{food.vegetarian? 'VEGE':'NOT VEGE'}</span> */}
                                 <span>
                                     <FontAwesomeIcon className="fontIcon" icon={faHandHoldingDollar}/> :
                                     {food.pricePerServing} per serving</span>
-                                <span><FontAwesomeIcon className="fonticon" icon={faStar}/>: {food.spoonacularScore} Score</span>
+                                <span><FontAwesomeIcon className="fonticon" icon={faStar}/>: {food.spoonacularScore} Score</span> */}
+                                
                                 <span>
-                                    <button onClick={()=>setSeeDescription(true)}>See Descriptions</button>
+                                    <img className={styles.infoIcon} src="https://img.icons8.com/?size=100&id=kZYJCScZSxUH&format=png&color=000000" alt="Clock" />: {food.readyInMinutes} minutes
+                                </span>
+                                <span>
+                                    <img className={styles.infoIcon} src="https://img.icons8.com/?size=100&id=43187&format=png&color=000000" alt="utensils" />: {food.servings} servings
+                                </span>
+                                <span>
+                                    <img className={styles.infoIcon} src="https://img.icons8.com/?size=100&id=cpa3RyNsYJkU&format=png&color=000000" alt="vegetable" />: {food.vegetarian? 'Vegetarian':'Non-Vegetarian'}
+                                </span>
+
+                                <span>
+                                    <img className={styles.infoIcon} src="https://img.icons8.com/?size=100&id=81980&format=png&color=000000" alt="score" />: {food.spoonacularScore}
+                                </span>
+
+                                <span>
+                                    <button className={styles.descriptionBtn} onClick={()=>setSeeDescription(true)}>See Descriptions</button>
                                 </span>
                             </p>
                         </div>
