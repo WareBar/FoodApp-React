@@ -1,28 +1,39 @@
 import { useEffect, useState } from "react";
 import styles from '../styles/FoodDetails.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faUtensils, faAppleAlt, faArrowLeftLong, faStar, faHandHoldingDollar, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeftLong, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
 
 const FoodDetails = ({foodId, foodData}) =>{
     const KEY = '299d7031b4b048bdb30836bd459a9ab1'; 
     const [food, setFood] = useState({});
     const [foodDescription, setFoodDescription] = useState();
+    const [foodNutrition, setFoodNutrition] = useState();
     const [loading, isLoading] =useState(true);
     const [seeDescription, setSeeDescription] = useState(false);
 
     //fetches data from API everytime the value of foodId changes
     useEffect(()=>{
         async function fetchFood(){
-            const result = await fetch('https://api.spoonacular.com/recipes/'+foodId+'/information?apiKey='+KEY)
-            const data = await result.json()
-            console.log(data)
-            if (data.status === 'failure'){
-                alert(data.message)
-            }
+            console.log(foodId)
+            // fetches basic information of the food
+            const fetchedFoodBasicInfo = await fetch('https://api.spoonacular.com/recipes/'+foodId+'/information?apiKey='+KEY)
+            const foodInfo = await fetchedFoodBasicInfo.json()
+
+            // fetches advancedInfo, such as the nutrients, calories breakdown, weight per serving
+            const fetchedFoodAdvanceInfo = await fetch('https://api.spoonacular.com/recipes/'+foodId+'/nutritionWidget.json?apiKey='+KEY)
+            const foodAdInfo = await fetchedFoodAdvanceInfo.json()
+
+            console.log(foodInfo)
+            console.log(foodAdInfo)
+            if (foodInfo.status === 'failure' || foodAdInfo.status === 'failure'){
+                alert(foodInfo.message)
+                alert(foodAdInfo.message)
+            }   
             else{
-                setFood(data)
-                setFoodDescription(data.summary.replace(/<(.|\n)*?>/g, ''))
+                setFood(foodInfo)
+                setFoodNutrition(foodAdInfo)
+                setFoodDescription(foodInfo.summary.replace(/<(.|\n)*?>/g, ''))
                 isLoading(false)
             }
         }
@@ -91,6 +102,10 @@ const FoodDetails = ({foodId, foodData}) =>{
 
                                 <span>
                                     <img className={styles.infoIcon} src="https://img.icons8.com/?size=100&id=81980&format=png&color=000000" alt="score" />: {food.spoonacularScore}
+                                </span>
+
+                                <span>
+                                    <img className={styles.infoIcon} src="https://img.icons8.com/?size=100&id=80372&format=png&color=000000" alt="money" />: {food.pricePerServing}
                                 </span>
 
                                 <span>
