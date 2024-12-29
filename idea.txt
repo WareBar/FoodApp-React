@@ -1,0 +1,6 @@
+Idea for getting or building the nutrition facts
+https://img.freepik.com/free-vector/flat-design-nutrition-label-collection_23-2149490280.jpg?t=st=1735443877~exp=1735447477~hmac=29167294f23ac615fb4f00dd0e12990afbe5fec6bc72d2c5a52a511ba7da95a1&w=1380
+https://spoonacular.com/food-api/docs#Nutrition-by-ID
+
+Idea for searching foods among food chains
+https://spoonacular.com/food-api/docs#Search-Menu-Items
