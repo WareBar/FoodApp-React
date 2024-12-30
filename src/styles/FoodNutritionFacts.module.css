@@ -1,0 +1,61 @@
+.NutritionFacts{
+    box-shadow: 1px 1px 10px black;
+    width: 80%;
+    margin-inline: auto;
+    padding: 20px;
+}
+
+
+.banner{
+    border: 1px solid blue;
+}
+
+.nutritionInfoContainer{
+    border: 1px solid brown;
+}
+
+.nutritionInfoHeader{
+    border: 1px solid green;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nutritionInfoHeader h1{
+    border: 1px solid gold;
+    width: 10rem;
+    text-align: left;
+}
+
+.nutritionInfoHeader img{
+    height: 60px;
+    width: 60px;
+}
+
+.nutritionInfo p{
+    display: flex;
+    flex-direction: column;
+}
+
+.nutrition{
+    border: 1px solid orangered;
+    display: flex;
+    justify-content: space-between;
+}
+
+.banner_content{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+.vitaminPercent{
+    border: 1px solid royalblue;
+}
