@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import styles from '../styles/FoodNutritionFacts.module.css'
+
 
 const FoodNutritionFacts = ({foodId, KEY}) => {
-    const [foodNutritions, setFoodNutritions] = useState({});
-    
+    const [foodNutritions, setFoodNutritions] = useState([]);
+    const [loading, isLoading] = useState(true);
+
 
     useEffect(()=>{
         async function fetchNutritions(){
@@ -16,6 +19,7 @@ const FoodNutritionFacts = ({foodId, KEY}) => {
             }
             else{
                 setFoodNutritions(fetchedInfo)
+                isLoading(false)
             }
         }
 
@@ -27,30 +31,66 @@ const FoodNutritionFacts = ({foodId, KEY}) => {
 
 
     return (
-        <div className="nutritionFacts">
-            <div className="container">
+        <div className={styles.NutritionFacts}>
+            <div className={styles.container}>
                 {/*
                 container of the upper part
                 which holds the information about the amount of ingredients and nutrients
                 
                 */}
-                <div className="nutrients">
-                    <div className="banner">
+                <div className={styles.nutrients}>
+                    <div className={styles.banner}>
                         <img src="./foodImage.png" alt="" />
-                        <p>
-                            <span>{foodNutritions.weightPerServing}Serving size per plate</span>
-                            <span><b>Calories</b></span>
-                            <span><b>Fat Cal</b></span>
-                            <span>*Percent Daily Values (DV are based on a 2,000 Calorie Diet)</span>
+
+                        {loading? <p>LOADING?</p>:
+                        <p className={styles.banner_content}>
+                            <span className={styles.serving}>{foodNutritions.weightPerServing.amount}{foodNutritions.weightPerServing.unit} Serving size per plate</span>
+                            <span className={styles.calories}>
+                                <b>Calories {foodNutritions.calories}</b>
+                            </span>
+
+                            <span>
+                                <b>Fat Cal {foodNutritions.fat}</b>
+                                
+                            </span>
+
+                            <span>*Percent Daily Values(DV are based on a 2,000 Calorie Diet)</span>
                         </p>
+                        }
                     </div>
-                    <div className="nutritionAmount"></div>
+
+
+                    <div className={styles.nutritionInfoContainer}>
+                        <div className={styles.nutritionInfoHeader}>
+                            <h1>Nutrition Facts</h1>
+                            <img src="./CookBookBrand.png" alt="" />
+                        </div>
+                        <div className={styles.nutritionInfo}>
+                            <p>
+                                {loading? <p>Loading...</p>:
+                                
+                                foodNutritions.nutrients.map((entity)=>(
+                                    <span className={styles.nutrition}>
+                                        <span className="nutritionMain">
+                                            <span className="nutritionName">{entity.name}</span>
+                                            <span className="nutritionAmount">{entity.amount}</span>
+                                        </span>
+                                        <span className="nutritionDaileyNeeds">{entity.percentOfDailyNeeds} %</span>
+                                    </span>
+                                ))
+                                
+                                }
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 {/* 
                 container of the bottom part
                 holds the vitamin general percent
                 */}
-                <div className="vitaminPercent"></div>
+                <div className={styles.vitaminPercent}>
+                    <p>VITAMINS</p>
+                </div>
             </div>
         </div>
     )
