@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeftLong, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
 
+import FoodNutritionFacts from "./FoodNutritionFacts";
+
 const FoodDetails = ({foodId, foodData}) =>{
     const KEY = '299d7031b4b048bdb30836bd459a9ab1'; 
     const [food, setFood] = useState({});
     const [foodDescription, setFoodDescription] = useState();
-    const [foodNutrition, setFoodNutrition] = useState();
     const [loading, isLoading] =useState(true);
     const [seeDescription, setSeeDescription] = useState(false);
 
@@ -20,19 +21,13 @@ const FoodDetails = ({foodId, foodData}) =>{
             const fetchedFoodBasicInfo = await fetch('https://api.spoonacular.com/recipes/'+foodId+'/information?apiKey='+KEY)
             const foodInfo = await fetchedFoodBasicInfo.json()
 
-            // fetches advancedInfo, such as the nutrients, calories breakdown, weight per serving
-            const fetchedFoodAdvanceInfo = await fetch('https://api.spoonacular.com/recipes/'+foodId+'/nutritionWidget.json?apiKey='+KEY)
-            const foodAdInfo = await fetchedFoodAdvanceInfo.json()
-
             console.log(foodInfo)
-            console.log(foodAdInfo)
-            if (foodInfo.status === 'failure' || foodAdInfo.status === 'failure'){
+            if (foodInfo.status === 'failure'){
                 alert(foodInfo.message)
-                alert(foodAdInfo.message)
+                
             }   
             else{
                 setFood(foodInfo)
-                setFoodNutrition(foodAdInfo)
                 setFoodDescription(foodInfo.summary.replace(/<(.|\n)*?>/g, ''))
                 isLoading(false)
             }
@@ -167,6 +162,8 @@ const FoodDetails = ({foodId, foodData}) =>{
                         
                     </div>
                 </div>
+
+                <FoodNutritionFacts foodId={foodId} KEY={KEY} />
 
 
             </div>
