@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from '../styles/FoodNutritionFacts.module.css'
 
 
-const FoodNutritionFacts = ({foodId, KEY}) => {
+const FoodNutritionFacts = ({foodId, KEY, pricePerServing}) => {
     const [foodNutritions, setFoodNutritions] = useState([]);
     const [loading, isLoading] = useState(true);
 
@@ -39,6 +39,10 @@ const FoodNutritionFacts = ({foodId, KEY}) => {
                 
                 */}
                 <div className={styles.nutrients}>
+                    <div className={styles.foodBanner}>
+                        <img src="./dish.png" alt="food" />   
+                    </div>
+
                     <div className={styles.banner}>
                         <img src="./foodImage.png" alt="" />
 
@@ -49,12 +53,11 @@ const FoodNutritionFacts = ({foodId, KEY}) => {
                                 <b>Calories {foodNutritions.calories}</b>
                             </span>
 
-                            <span>
+                            <span className={styles.fat}>
                                 <b>Fat Cal {foodNutritions.fat}</b>
-                                
                             </span>
 
-                            <span>*Percent Daily Values(DV are based on a 2,000 Calorie Diet)</span>
+                            <span className={styles.note}>*Percent Daily Values(DV are based on a 2,000 Calorie Diet)</span>
                         </p>
                         }
                     </div>
@@ -66,16 +69,15 @@ const FoodNutritionFacts = ({foodId, KEY}) => {
                             <img src="./CookBookBrand.png" alt="" />
                         </div>
                         <div className={styles.nutritionInfo}>
+                            <p className={styles.amountServing}>Amount Per Serving: ${pricePerServing}</p>
                             <p>
                                 {loading? <p>Loading...</p>:
                                 
                                 foodNutritions.nutrients.map((entity)=>(
-                                    <span className={styles.nutrition}>
-                                        <span className="nutritionMain">
-                                            <span className="nutritionName">{entity.name}</span>
-                                            <span className="nutritionAmount">{entity.amount}</span>
-                                        </span>
-                                        <span className="nutritionDaileyNeeds">{entity.percentOfDailyNeeds} %</span>
+                                    <span className={styles.nutrition}>              
+                                        <span className="nutritionName">{entity.name}</span>
+                                        <span className="nutritionAmount">{entity.amount} {entity.unit}</span>
+                                        {/* <span className="nutritionDaileyNeeds">{entity.percentOfDailyNeeds} %</span> */}
                                     </span>
                                 ))
                                 
