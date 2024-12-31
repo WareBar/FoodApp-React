@@ -163,7 +163,7 @@ const FoodDetails = ({foodId, foodData}) =>{
                     </div>
                 </div>
 
-                <FoodNutritionFacts foodId={foodId} KEY={KEY} />
+                <FoodNutritionFacts foodId={foodId} KEY={KEY} pricePerServing={food.pricePerServing} />
 
 
             </div>
