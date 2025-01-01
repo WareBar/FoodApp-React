@@ -25,11 +25,33 @@
 }
 
 .menuBtn{
+    cursor: pointer;
     height: 2em;
     color: whitesmoke;
     transition: .3s;
+
+    /* TESTING: REMOVE AFTER IMPLEMENTING THE SIDEBAR */
+    margin-right: 360px;
 }
 
 .menuBtn:hover{
     transform: rotateZ(90deg);
+}
+
+
+.sideBar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #171414;
+    height: 100vh;
+    width: 15vw;
+    transition: .3s;
+
+}
+
+
+.sideBar_Active{
+    right: -285px;
+    background-color: aqua;
 }
