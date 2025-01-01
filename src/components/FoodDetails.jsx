@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import FoodNutritionFacts from "./FoodNutritionFacts";
 
 const FoodDetails = ({foodId, foodData}) =>{
-    const KEY = 'ad253f3d5a234e26bb61f853cde5470c'; 
+    const KEY = '9ec1fcccf4ef490bac5d131a74aba43c'; 
     const [food, setFood] = useState({});
     const [foodDescription, setFoodDescription] = useState();
     const [loading, isLoading] =useState(true);
@@ -163,7 +163,7 @@ const FoodDetails = ({foodId, foodData}) =>{
                     </div>
                 </div>
 
-                <FoodNutritionFacts foodId={foodId} KEY={KEY} pricePerServing={food.pricePerServing} />
+                <FoodNutritionFacts foodId={foodId} KEY={KEY} pricePerServing={food.pricePerServing} food={food} />
 
 
             </div>
