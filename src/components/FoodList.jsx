@@ -9,7 +9,7 @@ const FoodList = ({foodData, setFoodId, setFoodData}) =>{
             <Search setFoodData={setFoodData}/>
             <div className={styles.FoodList}>
                 {foodData.map((food)=>(
-                    <FoodItem food={food} setFoodId={setFoodId} />
+                    <FoodItem key={food.title} food={food} setFoodId={setFoodId} />
                 ))}
             </div>
         </div>
