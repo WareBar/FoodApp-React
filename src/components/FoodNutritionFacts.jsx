@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from '../styles/FoodNutritionFacts.module.css'
 
 
-const FoodNutritionFacts = ({foodId, KEY, pricePerServing}) => {
+const FoodNutritionFacts = ({foodId, KEY, pricePerServing, food}) => {
     const [foodNutritions, setFoodNutritions] = useState([]);
     const [loading, isLoading] = useState(true);
 
@@ -40,7 +40,7 @@ const FoodNutritionFacts = ({foodId, KEY, pricePerServing}) => {
                 */}
                 <div className={styles.nutrients}>
                     <div className={styles.foodBanner}>
-                        <img src="./dish.png" alt="food" />   
+                        {loading? <img src="./dish.png" alt="" />:<img src={food.image} alt={food.title}/>}
                     </div>
 
                     <div className={styles.banner}>
@@ -93,7 +93,7 @@ const FoodNutritionFacts = ({foodId, KEY, pricePerServing}) => {
                 {loading? <p>Loading...</p>:
                 
                     <div className={styles.caloricBreakdown}>
-                        
+                        <h4>Caloric Breakdown</h4>
                         <div className={styles.calorieContainer}>
                             <p>
                                 <span className={styles.calorieName}>Carbs</span>
