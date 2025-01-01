@@ -48,7 +48,7 @@ const FoodNutritionFacts = ({foodId, KEY, pricePerServing}) => {
 
                         {loading? <p>LOADING?</p>:
                         <p className={styles.banner_content}>
-                            <span className={styles.serving}>{foodNutritions.weightPerServing.amount}{foodNutritions.weightPerServing.unit} Serving size per plate</span>
+                            <span className={styles.serving}>{foodNutritions.weightPerServing.amount}{foodNutritions.weightPerServing.unit} Serving size per serving</span>
                             <span className={styles.calories}>
                                 <b>Calories {foodNutritions.calories}</b>
                             </span>
@@ -90,9 +90,36 @@ const FoodNutritionFacts = ({foodId, KEY, pricePerServing}) => {
                 container of the bottom part
                 holds the vitamin general percent
                 */}
-                <div className={styles.vitaminPercent}>
-                    <p>VITAMINS</p>
-                </div>
+                {loading? <p>Loading...</p>:
+                
+                    <div className={styles.caloricBreakdown}>
+                        
+                        <div className={styles.calorieContainer}>
+                            <p>
+                                <span className={styles.calorieName}>Carbs</span>
+                                <span className={styles.caloriePercent}>{foodNutritions.caloricBreakdown.percentCarbs}%</span>
+                            </p>
+                        </div>
+
+                        <div className={styles.calorieContainer}>
+                            <p>
+                                <span className={styles.calorieName}>Fat</span>
+                                <span className={styles.caloriePercent}>{foodNutritions.caloricBreakdown.percentFat}%</span>
+                            </p>
+                        </div>
+
+                        <div className={styles.calorieContainer}>
+                            <p>
+                                <span className={styles.calorieName}>Protein</span>
+                                <span className={styles.caloriePercent}>{foodNutritions.caloricBreakdown.percentProtein}%</span>
+                            </p>
+                        </div>
+
+                    </div>
+                
+                }
+
+                {/* </div> */}
             </div>
         </div>
     )
