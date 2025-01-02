@@ -15,18 +15,31 @@ const Navigation = () =>{
 
 
             
-            <i onClick={()=>{
-                showSideBar(!sideBar)
-                console.log(sideBar)
-            }}>
-                <FontAwesomeIcon className={styles.menuBtn} icon={faBars}/>
-            </i>
             
 
             <div className={
                 sideBar? styles.sideBar: `${styles.sideBar} ${styles.sideBar_Active}`
             }>
-                <p>SIDE BAR</p>
+
+                <div className={styles.fontIcon} onClick={()=>{
+                    showSideBar(!sideBar)
+                    console.log(sideBar)
+                }}>
+                    <FontAwesomeIcon className={styles.menuBtn} icon={faBars}/>
+                </div>
+
+                <div className={styles.sideBarContent}>
+                    <div className={styles.sideBarBanner}>
+                        <img src="./CookBookBrand.png" alt="" />
+                    </div>
+
+                    <ul>
+                        <li>POPULAR FOOD</li>
+                        <li>HEALTHY FOOD</li>
+                        <li>VEGAN FOOD</li>
+                    </ul>
+
+                </div>
             </div>
 
         
