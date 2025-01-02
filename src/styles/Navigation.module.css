@@ -5,6 +5,9 @@
     background-color: #252525;
     color: wheat;
     padding: 10px 10px;
+    position: relative;
+    /* overflow-x: hidden; */
+
 }
 
 .brand{
@@ -24,28 +27,43 @@
     font-style: normal;
 }
 
-.menuBtn{
+.fontIcon{
+    height: fit-content;
+    width: fit-content;
+    padding: 8px;
+    cursor: pointer;
+    position: relative;
+    right: 45px;
+    top: 0;
+    font-size: 2em;
+    transition: .3s;
+}
+
+/* .menuBtn{
     cursor: pointer;
     height: 2em;
     color: whitesmoke;
     transition: .3s;
+    position: relative;
+    right: 45px;
+    top: 15px;
+    
+} */
 
-    /* TESTING: REMOVE AFTER IMPLEMENTING THE SIDEBAR */
-    margin-right: 360px;
-}
-
-.menuBtn:hover{
-    transform: rotateZ(90deg);
+.fontIcon:hover{
+    transform: rotateZ(-90deg);
+    border-radius: 10px 10px 0px 0px;
 }
 
 
 .sideBar{
     position: absolute;
+    z-index: 1;
     top: 0;
-    right: 0;
-    background-color: #171414;
+    right: 0px;
+    background-color: #171414   ;
     height: 100vh;
-    width: 15vw;
+    width: 280px;
     transition: .3s;
 
 }
@@ -53,5 +71,30 @@
 
 .sideBar_Active{
     right: -285px;
-    background-color: aqua;
+    background-color: #252525;
+}
+
+.sideBarBanner{
+    /* border: 1px solid wheat; */
+    /* margin: 20px auto; */
+    text-align: center;
+}
+
+.sideBarBanner img{
+    height: 150px;
+}
+
+.sideBarContent ul{
+    padding: 0;
+    /* border: 1px solid white; */
+    list-style: none;
+    font-size: 1.3em;
+    /* display: flex; */
+    /* flex-direction: row; */
+
+}
+
+.sideBarContent ul li{
+    margin: 35px 0px;
+    text-align: center;
 }
