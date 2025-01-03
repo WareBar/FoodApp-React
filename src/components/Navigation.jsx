@@ -31,6 +31,7 @@ const Navigation = () =>{
                 <div className={styles.sideBarContent}>
                     <div className={styles.sideBarBanner}>
                         <img src="./CookBookBrand.png" alt="" />
+                        <h1 className={styles.title}>WareBar's CookBook</h1>
                     </div>
 
                     <ul>

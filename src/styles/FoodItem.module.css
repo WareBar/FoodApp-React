@@ -1,5 +1,6 @@
 .Food{
     width: 300px;
+    background-color: whitesmoke;
     /* border-radius: 5px; */
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
