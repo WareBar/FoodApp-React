@@ -12,7 +12,7 @@ const Search = ({setFoodData}) =>{
 
     useEffect(()=>{
         async function fetchFood(){
-            const result = await fetch(`${URL}?query=${query}&apiKey=${KEY}`)
+            const result = await fetch(`${URL}?query=${query}&apiKey=${KEY}&number=20`)
             const data = await result.json()
             if (data.status === 'failure'){
                 alert(data.message)
