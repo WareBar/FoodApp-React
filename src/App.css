@@ -1,3 +1,20 @@
 *{
     margin: 0;
 }
+
+.App{
+    width: 100%;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar{
+	width: 0;
+  }
+  
+  ::-webkit-scrollbar-track{
+	background-color: whitesmoke;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+	background-color: #252525;
+  }
