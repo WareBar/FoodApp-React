@@ -42,7 +42,7 @@ const FoodDetails = ({foodId, foodData}) =>{
 
             {seeDescription? 
             
-                <div className={`${styles.description} ${styles.active}`}>
+                <div className={`${styles.description}`}>
 
                     <div className={styles.topDescription}>
                         <h3>{food.title}</h3> 
