@@ -2,6 +2,7 @@ import styles from '../styles/Navigation.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navigation = () =>{
     const [sideBar, showSideBar] = useState(false);
@@ -35,9 +36,11 @@ const Navigation = () =>{
                     </div>
 
                     <ul>
-                        <li>POPULAR FOOD</li>
-                        <li>HEALTHY FOOD</li>
-                        <li>VEGAN FOOD</li>
+                        <li>
+                            <Link className={styles.link} to="/Video">VIDEOS</Link>
+                        </li>
+                        <li>ABOUT</li>
+                        <li>API</li>
                     </ul>
 
                 </div>
