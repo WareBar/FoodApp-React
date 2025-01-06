@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import FoodNutritionFacts from "./FoodNutritionFacts";
 
 const FoodDetails = ({foodId, foodData}) =>{
-    const KEY = '9ec1fcccf4ef490bac5d131a74aba43c'; 
+    const KEY = '9031d45ca48b4217927403546074e349'; 
     const [food, setFood] = useState({});
     const [foodDescription, setFoodDescription] = useState();
     const [loading, isLoading] =useState(true);

@@ -37,10 +37,12 @@ const Navigation = () =>{
 
                     <ul>
                         <li>
-                            <Link className={styles.link} to="/Video">VIDEOS</Link>
+                            <Link className={styles.link} to="/Foods">FOODS</Link>
+                        </li>
+                        <li>
+                            <Link className={styles.link} to="/Video">COOKING</Link>
                         </li>
                         <li>ABOUT</li>
-                        <li>API</li>
                     </ul>
 
                 </div>

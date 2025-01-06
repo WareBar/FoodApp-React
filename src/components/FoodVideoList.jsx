@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 
 const URL = 'https://api.spoonacular.com/food/videos/'
-const KEY = '9ec1fcccf4ef490bac5d131a74aba43c'
+const KEY = '9031d45ca48b4217927403546074e349'
 
 const SearchVideo = ({setFoodVideos, KEY, isLoading}) => {
     const [query, setQuery] = useState('chicken')
@@ -48,9 +48,6 @@ const FoodVideoItem = ({vidThumbnail, vidTitle, vidShortTitle, vidLength, vidVie
     const youTubeUrl = `https://www.youtube.com/embed/${vidYoutubeId}?si=xT1slzXvCUJhAo_X`
     return (
         <div className={styles.FoodVideoItem}>
-            {/* <div>
-            <iframe width="560" height="315" src={youTubeUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div> */}
             <div className={styles.top}>
                 <img src={vidThumbnail} alt={vidTitle} />
             </div>
