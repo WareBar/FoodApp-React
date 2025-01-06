@@ -1,4 +1,5 @@
 import searchStyles from '../styles/Seach.module.css'
+import styles from '../styles/FoodVideoList.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
@@ -43,14 +44,33 @@ const SearchVideo = ({setFoodVideos, KEY, isLoading}) => {
     )
 }
 
-const FoodVideoItem = ({vidThumbnail, vidTitle, vidLength, vidViews, vidRatings, vidYoutubeId}) => {
-    // const youTubeUrl = `https://www.youtube.com/watch?v=${vidYoutubeId}`
+const FoodVideoItem = ({vidThumbnail, vidTitle, vidShortTitle, vidLength, vidViews, vidRatings, vidYoutubeId}) => {
     const youTubeUrl = `https://www.youtube.com/embed/${vidYoutubeId}?si=xT1slzXvCUJhAo_X`
     return (
-        <div>
-            <div>
+        <div className={styles.FoodVideoItem}>
+            {/* <div>
             <iframe width="560" height="315" src={youTubeUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div> */}
+            <div className={styles.top}>
+                <img src={vidThumbnail} alt={vidTitle} />
             </div>
+            <div className={styles.bottom}>
+                <div className={styles.left}>
+                    <p>
+                        <span className={styles.videoTitle}>{vidShortTitle}</span>
+                        <span className={styles.videoViews}>{vidViews} views</span>
+                    </p>
+                </div>
+                <div className={styles.right}>
+                    <p>
+                       <span>Rating</span>
+                       <span>{vidRatings.toFixed(2)}</span> 
+
+                    </p>
+                </div>
+            </div>
+
+
         </div>
     )
 }
@@ -64,9 +84,9 @@ const FoodVideoList = ({loading, isLoading}) => {
             {loading? <p>Loading Videos...</p>:
             
             
-            <div className="FoodVideoList">
+            <div className={styles.FoodVideoList}>
                 {foodVideos.videos.map((video)=>(
-                    <FoodVideoItem key={video.title} vidThumbnail={video.thumbnail} vidTitle={video.title} vidLength={video.length} vidViews={video.views} vidRatings={video.ratings} vidYoutubeId={video.youTubeId} />
+                    <FoodVideoItem key={video.title} vidThumbnail={video.thumbnail} vidTitle={video.title} vidShortTitle={video.shortTitle} vidLength={video.length} vidViews={video.views} vidRatings={video.rating} vidYoutubeId={video.youTubeId} />
                 ))}
             </div>
             }
