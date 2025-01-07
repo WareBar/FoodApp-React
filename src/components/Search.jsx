@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 
 const URL = 'https://api.spoonacular.com/recipes/complexSearch'
-const KEY = '9031d45ca48b4217927403546074e349'
+const KEY = 'ce18c0f227d6445d85ae9cc38ac166ea'
 
 const Search = ({setFoodData}) =>{
     const [query, setQuery] = useState('Curry');

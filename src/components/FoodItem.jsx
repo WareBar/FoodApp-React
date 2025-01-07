@@ -14,8 +14,6 @@ const FoodItem = ({food, setFoodId}) => {
                 <button className={styles.viewBtn} onClick={()=>setFoodId(food.id)}>
                     <Link className={styles.link} to="/Recipe">VIEW RECIPE</Link>
                 </button>
-
-
             </div>
         </div>
     )
