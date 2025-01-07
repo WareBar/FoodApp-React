@@ -1,14 +1,15 @@
 import searchStyles from '../styles/Seach.module.css'
 import styles from '../styles/FoodVideoList.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass,faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 
 const URL = 'https://api.spoonacular.com/food/videos/'
-const KEY = '9031d45ca48b4217927403546074e349'
+const KEY = 'ce18c0f227d6445d85ae9cc38ac166ea'
 
 const SearchVideo = ({setFoodVideos, KEY, isLoading}) => {
-    const [query, setQuery] = useState('chicken')
+    const [query, setQuery] = useState('chicken');
+    const [showVid, isShowVid] = useState(false)
     
     useEffect(()=>{
         async function fetchFoodVideo(){
@@ -45,10 +46,40 @@ const SearchVideo = ({setFoodVideos, KEY, isLoading}) => {
 }
 
 const FoodVideoItem = ({vidThumbnail, vidTitle, vidShortTitle, vidLength, vidViews, vidRatings, vidYoutubeId}) => {
-    const youTubeUrl = `https://www.youtube.com/embed/${vidYoutubeId}?si=xT1slzXvCUJhAo_X`
+    const youTubeUrl = `https://www.youtube.com/embed/${vidYoutubeId}?si=xT1slzXvCUJhAo_X`;
+    const [showVid, isShowVid] = useState(false);
     return (
         <div className={styles.FoodVideoItem}>
-            <div className={styles.top}>
+
+            {
+                showVid?
+                    <div className={showVid? styles.videoBgBlocker:''}>
+                        <div className={styles.videoPlayer}>
+                            <div className={styles.videoPlayerControls}>
+                                <FontAwesomeIcon className={styles.exitBtn} icon={faCircleXmark} onClick={()=>{
+                                isShowVid(false);
+                            }}/>
+
+                            </div>
+                            <iframe className={styles.videoMedia} width="560" height="315" src={youTubeUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    :
+                    <></>
+            }
+
+
+
+            <div className={styles.top} onClick={()=>{
+                if(showVid===true){
+                    console.log('another video is playing')
+                }
+                else if (showVid === false){
+                    isShowVid(true);
+                    console.log(`${showVid}: video is mounting`)
+                }
+            }}>
                 <img src={vidThumbnail} alt={vidTitle} />
             </div>
             <div className={styles.bottom}>
