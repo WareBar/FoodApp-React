@@ -91,9 +91,16 @@ const FoodVideoItem = ({vidThumbnail, vidTitle, vidShortTitle, vidLength, vidVie
                 </div>
                 <div className={styles.right}>
                     <p>
-                       <span>Rating</span>
-                       <span>{vidRatings.toFixed(2)}</span> 
-
+                       {/* <span>Rating</span> */}
+                       <span>{vidRatings.toFixed(2)}'s rating</span>
+                       <span className={styles.ratingContainer}>
+                            <div className={styles.starValue} data-rating={vidRatings.toFixed(2)}></div>
+                            <div className={styles.starRating}></div>
+                            <div className={styles.starRating}></div>
+                            <div className={styles.starRating}></div>
+                            <div className={styles.starRating}></div>
+                            <div className={styles.starRating}></div>
+                       </span>
                     </p>
                 </div>
             </div>
