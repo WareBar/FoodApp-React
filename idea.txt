@@ -9,3 +9,5 @@ https://spoonacular.com/food-api/docs#Search-Menu-Items
 Idea for showing videos of recipes
 https://spoonacular.com/food-api/docs#Search-Food-Videos
 https://api.spoonacular.com/food/videos/search?query=masala&number=10&apiKey=9ec1fcccf4ef490bac5d131a74aba43c
+
+make all things responsive
