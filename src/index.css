@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap');
+
+
+@import "tailwindcss";
+
+@layer base{
+    body{
+        background-color: var(--color-primary);
+    }
+    *{
+        margin: 0;
+    }
+}
+
+@layer components{
+
+
+
+
+    .mada-font{
+    font-family: "Mada", sans-serif;
+    }
+
+    .socials{
+        font-size: 1.5em;
+    }
+}
+
+
+@theme{
+    --color-primary: #010D13;
+    --color-secondary:#8196AF;
+    --color-accent:#FEFEFE;
+}

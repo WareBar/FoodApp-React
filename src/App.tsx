@@ -1,10 +1,12 @@
 
-import './App.css'
+import Landing from './pages/Landing'
+
+// const apiKey = 'ce18c0f227d6445d85ae9cc38ac166ea'
 
 function App() {
   return (
     <>
-      <h1>NEW FOOD APP</h1>
+      <Landing/>
     </>
   )
 }
